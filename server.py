@@ -81,14 +81,14 @@ def update(entity):
     '''update the entities via this interface'''
     data = flask_post_json()
 
-    if (data['x']):
+    if ('x' in data.keys()):
         myWorld.update(entity, 'x', data['x'])
-    if (data['y']):
+    if ('y' in data.keys()):
         myWorld.update(entity, 'y', data['y'])
-    if (data['colour']):
-        #myWorld.update(entity, 'color', data['color'])
-    #if (data['radius']):
-        #myWorld.update(entity, 'radius', data['radius'])
+    if ('colour' in data.keys()):
+        myWorld.update(entity, 'colour', data['colour'])
+    if ('radius' in data.keys()):
+        myWorld.update(entity, 'radius', data['radius'])
     return jsonify(myWorld.get(entity))
     
 

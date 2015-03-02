@@ -144,7 +144,7 @@ function getPosition(e) {
 
 function addEntity(entity, data) {
     world[entity] = data;
-    //drawNextFrame(); // (but should we?)
+    drawNextFrame(); // (but should we?)
     //XXX: Send a XHTML Request that updates the entity you just  modified!
     url = "http://127.0.0.1:5000/entity/" + entity;
     xhr = new XMLHttpRequest();
@@ -276,11 +276,11 @@ mouse.mousedraggers.push(function(x,y,clicked,e) {
 
 function update() {
     //XXX: TODO Get the world from the webservice using a XMLHTTPRequest
+    drawFrame();
     url = "http://127.0.0.1:5000/world"
     xhr = new XMLHttpRequest();
     xhr.open("GET", url, true);
     xhr.send();
-    drawFrame();
 
 }
 
